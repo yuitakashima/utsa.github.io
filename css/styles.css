@@ -17,6 +17,8 @@ body {
 /* Sidebar Navigation */
 .sidebar {
     width: 250px;
+    min-width: 200px;
+    max-width: 300px;
     background-color: #2c2c2c;
     color: white;
     position: fixed;
@@ -72,7 +74,7 @@ body {
     margin-left: 250px;
     flex: 1;
     padding: 40px;
-    max-width: 1200px;
+    width: 100%;
 }
 
 /* Add indentation for content under h2 in other pages */
@@ -132,7 +134,8 @@ body {
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    min-width: 1190px;
+    width: 90%;
+    max-width: 1400px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -188,7 +191,7 @@ body {
 /* Profile Info */
 .profile-info {
     flex: 1;
-    min-width: 600px;
+    min-width: 300px;
 }
 
 .profile-info h1 {
@@ -212,7 +215,8 @@ body {
 
 .profile-info .info-box {
     margin-top: 20px;
-    min-width: 500px;
+    min-width: 0;
+    width: 100%;
 }
 
 /* Info Box */
@@ -224,7 +228,8 @@ body {
     margin-top: 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border: 1px solid #e0e0e0;
-    min-width: 1190px;
+    width: 90%;
+    max-width: 1400px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -275,7 +280,8 @@ body {
     margin-bottom: 30px;
     margin-top: 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    min-width: 1190px;
+    width: 90%;
+    max-width: 1400px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -300,7 +306,8 @@ body {
     padding: 40px;
     border-radius: 8px;
     text-align: center;
-    min-width: 1190px;
+    width: 90%;
+    max-width: 1400px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -615,14 +622,32 @@ html {
 }
 
 /* Responsive Design */
+@media (max-width: 1200px) {
+    .hero-section {
+        width: 95%;
+    }
+
+    .info-box,
+    .about-section,
+    .contact-footer {
+        width: 95%;
+    }
+}
+
 @media (max-width: 1024px) {
     .hero-section {
         flex-direction: column;
         align-items: center;
         text-align: center;
+        width: 95%;
     }
 
     .profile-info {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .profile-info .info-box {
         width: 100%;
     }
 }
@@ -630,10 +655,19 @@ html {
 @media (max-width: 768px) {
     .sidebar {
         width: 200px;
+        min-width: 180px;
     }
 
     .main-content {
         margin-left: 200px;
+        padding: 20px;
+    }
+
+    .hero-section,
+    .info-box,
+    .about-section,
+    .contact-footer {
+        width: 98%;
         padding: 20px;
     }
 
@@ -660,11 +694,13 @@ html {
         width: 100%;
         height: auto;
         position: relative;
+        min-width: 100%;
     }
 
     .main-content {
         margin-left: 0;
         padding: 15px;
+        width: 100%;
     }
 
     .nav-menu {
@@ -685,6 +721,14 @@ html {
         font-size: 14px;
     }
 
+    .hero-section,
+    .info-box,
+    .about-section,
+    .contact-footer {
+        width: 100%;
+        padding: 15px;
+    }
+
     .profile-image {
         width: 150px;
         height: 150px;
@@ -692,10 +736,6 @@ html {
 
     .profile-placeholder {
         font-size: 50px;
-    }
-
-    .hero-section {
-        padding: 20px;
     }
 
     .social-links a {
