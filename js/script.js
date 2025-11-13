@@ -60,4 +60,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Update on hash change
     window.addEventListener('hashchange', showCurrentPage);
+
+    // Add external link icons to all external links
+    function addExternalLinkIcons() {
+        const links = document.querySelectorAll('a[href^="http"]');
+        links.forEach(link => {
+            // Skip if it's a social media icon link (already has an icon)
+            if (link.querySelector('i.fa, i.fab, i.fas')) {
+                return;
+            }
+
+            // Check if icon already added
+            if (!link.querySelector('.external-link-icon')) {
+                const icon = document.createElement('i');
+                icon.className = 'fas fa-external-link-alt external-link-icon';
+                link.appendChild(icon);
+            }
+        });
+    }
+
+    // Add icons on page load
+    addExternalLinkIcons();
 });
