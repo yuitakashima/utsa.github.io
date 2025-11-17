@@ -81,4 +81,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add icons on page load
     addExternalLinkIcons();
+
+    // Project card keyboard accessibility
+    const projectLabels = document.querySelectorAll('.project-title');
+    projectLabels.forEach(label => {
+        // Make label focusable
+        label.setAttribute('tabindex', '0');
+
+        // Add keyboard event listener
+        label.addEventListener('keydown', function(event) {
+            // Toggle on Enter or Space key
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault(); // Prevent page scroll on Space
+
+                // Get the associated checkbox
+                const checkboxId = this.getAttribute('for');
+                const checkbox = document.getElementById(checkboxId);
+
+                if (checkbox) {
+                    checkbox.checked = !checkbox.checked;
+                }
+            }
+        });
+    });
 });
